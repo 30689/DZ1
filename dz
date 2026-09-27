@@ -1,0 +1,76 @@
+import math
+
+class Shape:
+    def __init__(self, color):
+        self.color = color
+
+    def area(self):
+        return 0
+
+class Circle(Shape):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+
+class Rectangle(Shape):
+    def __init__(self, color, width, height):
+        super().__init__(color)
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+print("=== коло ===")
+color = input("введіть колір: ")
+radius = float(input("іведіть радіус: "))
+
+circle = Circle(color, radius)
+
+print("Колір:", circle.color)
+print("Радіус:", circle.radius)
+print("Площа:", circle.area())
+
+print("\n=== Прямокутник ===")
+color = input("введіть колір: ")
+width = float(input("введіть ширину: "))
+height = float(input("введіть висоту: "))
+
+rectangle = Rectangle(color, width, height)
+
+print("колір:", rectangle.color)
+print("ширина:", rectangle.width)
+print("висота:", rectangle.height)
+print("площа:", rectangle.area())
+
+
+import random
+
+class Number:
+    def __init__(self, a, b):
+        self.__a = a
+        self.__b = b
+
+    def __calculate(self):
+        operation = random.choice(["+", "-", "*"])
+
+        if operation == "+":
+            return self.__a + self.__b
+        elif operation == "-":
+            return self.__a - self.__b
+        else:
+            return self.__a * self.__b
+
+    def __str__(self):
+        return str(self.__calculate())
+
+a = int(input("Введіть перше число: "))
+b = int(input("Введіть друге число: "))
+
+number = Number(a, b)
+
+print("Результат:", number)
