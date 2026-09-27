@@ -1,0 +1,5 @@
+start = int(input("введіть число з: "))
+end = int(input("введіть число по: "))
+
+for number in range(start, end + 1):
+    print(number, end=" ")
